@@ -1,0 +1,53 @@
+{
+  "name": "telegram-extension",
+  "displayName": "Telegram_extension",
+  "description": "It helps you to send to somebody your code in telegram. You can only select piece of your code and send it to somebody",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "telegram-extension.SendCode",
+      "title": "Send Code"
+    }],
+    "menus":{
+      "editor/context": [
+        {
+          "command":"telegram-extension.SendCode",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+    ]},
+    "keybindings": [
+      {
+        "command": "telegram-extension.SendCode",
+        "key": "ctrl+alt+t",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "docs": "npx --yes jsdoc-to-markdown extension.js > API.md"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.140.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "eslint": "^10.5.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}

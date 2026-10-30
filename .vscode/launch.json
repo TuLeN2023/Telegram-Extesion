@@ -1,0 +1,15 @@
+{
+    // Запуск расширения в отдельном окне VS Code (Extension Development Host).
+    // Обычный node здесь не подходит: модуль 'vscode' существует только внутри VS Code.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Extension",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}/telegram-extension"
+            ]
+        }
+    ]
+}
